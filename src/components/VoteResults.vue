@@ -15,7 +15,7 @@ export default {
   data() {
     return {
       options: ['Orange', 'Green', 'Blue', 'Yellow'],
-      voteCounts: {}
+     voteCounts: {}
     }
   },
   methods: {
