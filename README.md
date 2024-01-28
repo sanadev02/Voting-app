@@ -60,7 +60,7 @@ The back-end has been tested using Node.js with Express to the the GET and POST 
 2. Input Sanitation: Sanitise user inputs on the front-end to prevent XSS attacks. Libraries like "DOMPurify" can be used for this purpose.
 3. Authentication and Authorisation: Implement user authentication and authorisation mechanisms to secure the application further.
 
-## Unifinshed/Assumed Aspects
+## Unfinished/ Assumed Aspects
 1. Deployment: Currently, the webapp only deploys locally. For production, deploying the webapp to a secure hosting environment with proper security configurations, should be considered.
 
 2. UI/UX Enhancements: Additional Styling and responsiveness improvements could be made for a polished user experience.
