@@ -1,72 +1,52 @@
 <template>
     <div>
-        <h1>Who will win the Priemier League?</h1>
-         <div class="sidebar">
-            <!-- <button  v-for="option in options" :key="option" @click="vote(option)">{{ option }}</button> -->
-            <button @click="vote(option1)"  :class="{ 'selected': selectedOption === option1 }">{{ option1 }}</button>
-            <button @click="vote(option2)"  :class="{ 'selected': selectedOption === option2 }" >{{ option2 }}</button>
-            <button @click="vote(option3)"  :class="{ 'selected': selectedOption === option3 }">{{ option3 }}</button>
+        <h1 class="header">Who will win the Premier League?</h1>
+        <div class="sidebar"> <!-- Sidebar containing voting options and submit button -->
+            <div @click="vote(option1)" :class="{ 'selected': selectedOption === option1 }" id="option">{{ option1 }}</div>
+            <div @click="vote(option2)" :class="{ 'selected': selectedOption === option2 }" id="option">{{ option2 }}</div>
+            <div @click="vote(option3)" :class="{ 'selected': selectedOption === option3 }" id="option">{{ option3 }}</div>
             <button @click="sendVoteToServer()">Submit</button>
-         </div>
+        </div>
     </div>
 </template>
 
 <script>
-import axios from 'axios'; // Make sure to install axios with npm install axios
+import axios from 'axios';
 
 export default {
     name: "VotingPage",
     data() {
         return {
-            votes: 0,
             selectedOption: null,
-            option1: 'Liverpool',
+            option1: 'Arsenal',
             option2: 'Manchester City',
-            option3: 'Arsenal',
-            // options: ['Liverpool', 'Manchester City', 'Arsenal'] // Add or remove options as needed
+            option3: 'Liverpool',
         }
     },
-    methods: {
-         vote(option) {
-             this.selectedOption = option;
-        //     this.votes++;
-        //     this.sendVoteToServer();
+    methods: { 
+        vote(option) { // Method to update the 'selectedOption' when a user clicks on an option.
+            this.selectedOption = option;
         },
-        async sendVoteToServer() {
-            try {
+        async sendVoteToServer() { // Used to send the selected option to the server
+            if (!this.selectedOption) {
+                alert('Please select an option before submitting.');
+                return;
+            }
+            try { // Send the selected option to the server
                 const response = await axios.post('http://localhost:3000/vote', {
-                   selectedOption: this.selectedOption,
-                    // option1:this.selectedOption,
-                    // option2:this.selectedOption,
-                    // option3:this.selectedOption,
-                    // option: this.selectedOption
+                    selectedOption: this.selectedOption,
                 });
                 console.log(response.data);
+                // Redirect to the '/votes' route after successful submission
+                this.$router.push({ path: '/votes' });
             } catch (error) {
-                console.error(error);
+                if (axios.isCancel(error)) {
+                    console.error('Request canceled:', error.message);
+                } else {
+                    console.error('AxiosError:', error.message);
+                }
             }
         }
     }
 }
 </script>
-
-<style scoped>
-button{
-  width: 70%;
-  height: 50px;
-  /* display:block; */
-  align-items: center;
-  font-size: 100%;
-  opacity: 50%;
-  outline: 100%;
-  outline-color: white;
-}
-.selected {
-    background-color: white; /* Change this to the color you want for the selected button */
-    opacity: 1;
-    border-radius: 7px;
-    box-sizing: border-box;
-  font-weight: normal;
-}
-
-</style>

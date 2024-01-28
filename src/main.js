@@ -1,6 +1,6 @@
 import { createApp } from "vue";
 import { createRouter, createWebHistory } from "vue-router";
-import App from "./App.vue"; // Import App component
+import App from "./App.vue"; 
 import VotingPage from "./components/VotingPage.vue";
 import VoteResults from "./components/VoteResults.vue";
 
@@ -13,7 +13,6 @@ const routes = [
     path: "/votes",
     component: VoteResults,
   },
-  // other routes...
 ];
 
 const router = createRouter({

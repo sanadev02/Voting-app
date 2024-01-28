@@ -6,11 +6,13 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "mocha"
   },
   "dependencies": {
     "3": "^2.1.0",
-    "axios": "^1.6.5",
+    "axios": "^1.6.7",
+    "chai-http": "^4.4.0",
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "sql": "^0.78.0",
@@ -21,6 +23,9 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.5.2",
+    "chai": "^4.4.1",
+    "mocha": "^10.2.0",
+    "supertest": "^6.3.4",
     "vite": "^5.0.10"
   }
 }
