@@ -13,29 +13,31 @@ This README provides instructions on how to run the Voting App locally. The deve
 
 1. Clone the repository:
 
-git clone https://github.com/sanadev02/voting-app.git
-cd votingapp-main
+        git clone https://github.com/sanadev02/voting-app.git
+    
+        cd votingapp-main
 
 2. Install dependencies for the front-end and back-end:
 
-npm install
-npm install sqlite3
-npm install axios
-npm install chai-http
+        npm install
+        npm install sqlite3
+        npm install axios
+        npm install chai-http
 
 
 3. Run the server and client:
 
-    # In the first terminal run:
+In the first terminal run:
+        
         npm run dev
-
-    In a second terminal run:
+In a second terminal run:
+      
         node server.js
-    
-    For running tests:
+For running tests:
+      
         npm test
 
-4. Click the link given in the first terminal to access the Voting App.
+5. Click the link given in the first terminal to access the Voting App.
 
 ## Development Stack
 ### Front-end
