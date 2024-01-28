@@ -1,10 +1,10 @@
-# votingapp
+# Voting-app
 
 This README provides instructions on how to run the Voting App locally. The development stack is discussed, along with the testing approach, potential security concerns, and any unfinished or assumed aspects.
 
 
 ## Running the Voting App Locally 
-### Prequisites
+### Prerequisites
 
 1. Node.js and npm installed on your machine.
 2. Git installed on your machine
@@ -35,28 +35,28 @@ npm install chai-http
     For running tests:
         npm test
 
-4. Click the link given in the first termainal to access the Voting App.
+4. Click the link given in the first terminal to access the Voting App.
 
 ## Development Stack
 ### Front-end
-The front-end of the Voting App is built using Vue.js, which was chosen due to its simplicity,reactive system, and ease of integration with various UI components.
+The front-end of the Voting App is built using Vue.js, which was chosen due to its simplicity, reactive system, and ease of integration with various UI components.
 
 ### Back-end
-The back-end utilises a Node.js server with EXpress.js to expose a RESTful API. SQLite3 is used as the local database for simplicity.
+The back-end utilises a Node.js server with Express.js to expose a RESTful API. SQLite3 is used as the local database for simplicity.
 
 ## Testing
 ### Front-end Testing
 The front-end has been tested using Vue Test Utils. Unit tests ensure that components are functioning correctly and that interactions with the UI work as expected.
 
 ### Back-end Testing
-The back-end has been tested using Node.js with Express to the the GET and POST endpoints. To test these endpoint testing libraries like Mocha and Chai were used.
+The back-end has been tested using Node.js with Express to the GET and POST endpoints. To test these endpoint testing libraries like Mocha and Chai were used.
 
 ## Security Concerns
-1. SQL Injections: The current implementation is vunerable to SQL injections as it directly inserts user input into SQL queries.
-2. Cross-Site-Scripting(XSS): The front-end does not sanitise user inputs, making it susceptable to XSS attacks.
+1. SQL Injections: The current implementation is vulnerable to SQL injections as it directly inserts user input into SQL queries.
+2. Cross-Site-Scripting(XSS): The front-end does not sanitise user inputs, making it susceptible to XSS attacks.
 
 ### Mitigation Strategies
-1. Parameterised Queries: Implement parameteriesed queries to prevent SQL injection. 
+1. Parameterised Queries: Implement parameterised queries to prevent SQL injection. 
 2. Input Sanitation: Sanitise user inputs on the front-end to prevent XSS attacks. Libraries like "DOMPurify" can be used for this purpose.
 3. Authentication and Authorisation: Implement user authentication and authorisation mechanisms to secure the application further.
 
